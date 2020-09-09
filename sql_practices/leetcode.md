@@ -108,3 +108,85 @@ WHERE e3.manager_id=1 AND  e1.employee_id != 1
 
 
 ```
+
+### 196. Delete Duplicate Emails
+
+```sql
+
+DELETE p1 
+FROM Person p1, Person p2
+WHERE p1.Email = p2.Email AND p1.Id> p2.Id;
+```
+
+
+
+### 615. Average Salary: Departments VS Company
+- [Solution from LC Chinese official website](https://leetcode-cn.com/problems/average-salary-departments-vs-company/solution/ping-jun-gong-zi-bu-men-yu-gong-si-bi-jiao-by-leet/)
+- date_format(pay_date,'%Y-%M')
+
+
+```sql
+
+/* First step: get monthly avg company salary */
+/*
+SELECT 
+    AVG(amount) as company_month_avg_salary, 
+    date_format(pay_date, '%Y-%m') AS pay_month
+FROM salary
+GROUP BY date_format(pay_date, '%Y-%M');
+
+*/
+
+/* Second step: get department monthly avg department salary */
+/*
+SELECT 
+    department_id,
+    AVG(amount) as dept_month_avg_salary, 
+    date_format(pay_date, '%Y-%m') AS pay_month
+    
+    
+FROM salary s 
+JOIN employee e
+ON  s.employee_id = e.employee_id 
+GROUP BY date_format(pay_date, '%Y-%M'), department_id;
+
+*/
+
+-- Final step: 
+
+SELECT 
+    dept_month_salary.pay_month,
+    dept_month_salary.department_id,
+    (
+        CASE 
+            WHEN dept_month_avg_salary>company_month_avg_salary THEN 'higher'
+            WHEN dept_month_avg_salary = company_month_avg_salary THEN 'same'
+            ELSE 'lower' 
+        END
+    ) AS comparison
+    
+FROM
+    (
+        SELECT 
+        AVG(amount) as company_month_avg_salary, 
+        date_format(pay_date, '%Y-%m') AS pay_month
+        FROM salary
+        GROUP BY date_format(pay_date, '%Y-%M')
+    ) AS company_month_salary
+    
+    JOIN
+    (
+        SELECT 
+            department_id,
+            AVG(amount) as dept_month_avg_salary, 
+            date_format(pay_date, '%Y-%m') AS pay_month
+
+            FROM salary s 
+            JOIN employee e
+            ON  s.employee_id = e.employee_id 
+            GROUP BY date_format(pay_date, '%Y-%M'), department_id
+    ) AS dept_month_salary
+    
+    ON dept_month_salary.pay_month = company_month_salary.pay_month;
+
+```
