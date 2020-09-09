@@ -190,3 +190,23 @@ FROM
     ON dept_month_salary.pay_month = company_month_salary.pay_month;
 
 ```
+
+
+### 180. Consecutive Numbers
+- [Solution from LC sql chinese website](https://leetcode-cn.com/problems/consecutive-numbers/solution/lian-xu-chu-xian-de-shu-zi-by-leetcode/)
+-  `DISTINCT` to remove the duplicates
+
+
+```sql
+
+# Write your MySQL query statement below
+SELECT DISTINCT l1.Num AS ConsecutiveNums 
+FROM
+    Logs l1, Logs l2, Logs l3
+
+WHERE 
+    l1.Num = l2.Num AND l2.Num = l3.Num
+    AND l1.id = l2.id -1 AND l2.id = l3.id -1;
+
+
+```
