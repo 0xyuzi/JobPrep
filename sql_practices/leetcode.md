@@ -1,5 +1,12 @@
 # Leetcode SQL Problems
 
+### 176. Second Highest Salary
+``` sql
+SELECT MAX(Salary) AS SecondHighestSalary 
+FROM Employee 
+WHERE Salary < (SELECT MAX(Salary) AS max_salary FROM Employee)
+```
+
 ### 185. Department Top Three Salaries
 - `dense_rank() over`
 - `partition by` 
