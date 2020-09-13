@@ -14,5 +14,5 @@ The coding problems are from [Lintcode](https://www.lintcode.com/)
 
 ## DP Problem
 [92. Backpack](https://www.lintcode.com/problem/backpack/description?_from=ladder&&fromId=160)
-- [Code](./Backpack_92.py)
+- [Code](./code/Backpack_92.py)
 - `dp[i][j]`, the max of size when go over to the ith item with backpack at size of j 
