@@ -9,3 +9,9 @@ The coding problems are from [Lintcode](https://www.lintcode.com/)
 - [code example from solution](./code/course_schedule_IV_815_example_sol.py)
 - [backtracking method explanation (in chinese)](https://segmentfault.com/a/1190000006121957) 
 - [bitmap explanation (in chinese)](https://www.cnblogs.com/cjsblog/p/11613708.html)
+
+
+
+## DP Problem
+[92. Backpack](https://www.lintcode.com/problem/backpack/description?_from=ladder&&fromId=160)
+- `dp[i][j]`, the max of size when go over to the ith item with backpack at size of j 
