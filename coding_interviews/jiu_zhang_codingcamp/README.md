@@ -16,3 +16,9 @@ The coding problems are from [Lintcode](https://www.lintcode.com/)
 [92. Backpack](https://www.lintcode.com/problem/backpack/description?_from=ladder&&fromId=160)
 - [Code](./code/Backpack_92.py)
 - `dp[i][j]`, the max of size when go over to the ith item with backpack at size of j 
+
+
+[588. Partition Equal Subset Sum](https://www.lintcode.com/problem/partition-equal-subset-sum/description?_from=ladder&&fromId=160)
+- [Code][./code/Partition_Equal_Subset_Sum_588.py]
+- True/False
+- `for i in range(half_sum, num-1, -1)`
