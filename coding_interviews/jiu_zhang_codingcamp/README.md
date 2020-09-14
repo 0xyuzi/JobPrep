@@ -19,6 +19,6 @@ The coding problems are from [Lintcode](https://www.lintcode.com/)
 
 
 [588. Partition Equal Subset Sum](https://www.lintcode.com/problem/partition-equal-subset-sum/description?_from=ladder&&fromId=160)
-- [Code][./code/Partition_Equal_Subset_Sum_588.py]
+- [Code](./code/Partition_Equal_Subset_Sum_588.py)
 - True/False
 - `for i in range(half_sum, num-1, -1)`
