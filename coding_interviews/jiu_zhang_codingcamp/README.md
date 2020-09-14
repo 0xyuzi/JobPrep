@@ -22,3 +22,8 @@ The coding problems are from [Lintcode](https://www.lintcode.com/)
 - [Code](./code/Partition_Equal_Subset_Sum_588.py)
 - True/False
 - `for i in range(half_sum, num-1, -1)`
+
+[1861. Rat Jump](https://www.lintcode.com/problem/rat-jump/description?_from=ladder&&fromId=160)
+- need to code again
+- `% MOD_NUM = 10**9 + 7`
+- odds, evens
