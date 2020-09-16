@@ -74,3 +74,34 @@ Two basic response models:
 |                  |             |               |  2. ....   |         |              |
 |------------------|-------------|---------------|------------|---------|--------------|
 | Story 2          |             |               |            |         |              |
+
+
+### Explore the Action
+Break down the action into multiple parts. For example, "I did three things. First, I.." This will encourage sufficient depth.
+
+### Think About What It Says
+
+- Initiative/Leadership: The candidate tried to resolve the situation by addressing it head-on.
+- Empathy: The candidate tried to understand what was happening to the person. The candidate also showed empathy in knowing what would resolve the teammate's insecurity.
+- Compassion:
+- Humility:
+- Teamwork/Helpfulness:
+
+
+## So, tell me about yourself
+
+This is essentially a "pitch", It's your interviewer's first impression of you, so you want to be sure to nail this.
+
+### Structure 
+
+1. Current Role [Headline only]: 
+2. College:
+3. Post College & Onwards:
+4. Current Role [Details]:
+4. Outside of Wor: Hackathons, active as a moderator on online forums around Android development.
+5. Wrap up: I'm looking now for something new, and your company caught my eyes. I've always loved the connection with the user, and I really want to get back to a smaller environment too.
+
+
+### Sprinkle in Shows of Success
+Shows of successes (awards, promotions, being recruited out by someone you worked with, launches, etc)? What do you want to communicate about yourself.
+
