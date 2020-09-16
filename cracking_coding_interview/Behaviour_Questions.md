@@ -1,4 +1,4 @@
-# Behaviour Questions
+# Behavioral Questions
 
 ## Preparation Grid
 Go through each of the projects or components of your resume and ensure that you can talk about them in detail. Fill a grid below would help
