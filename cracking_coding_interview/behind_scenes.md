@@ -74,4 +74,25 @@ Google puts a strong factor on analytical (algorithm) skills, regardless of expe
 ### What's Different 
 Your interviewers do not make hiring decision. Rather, they enter feedback which is passed to a hiring committee. THe hiring committee recommends a decision which can be -though rarely is -rejected by Google executives.
 
+## The Apple Interview
+
+The interview process usually begins with a recruiter phone screen to get a basic sense of your skills, followed up by a series of technical phone screens with team members.
+
+Once you're invited on campus, you'll typically be greeted by the recruiter who provides an overview of the process. You will then have 6 - 8 interviews with members of the team with which you're interviewing, as well as key people with whom your team works.
+
+You can expect a mix of one-on-one and two-on-one interview. Be ready to code on a whiteboard and make sure all of your thoughts are clearly communicated. Lunch is with your potential manager and appears more casual, but it is still an interview. Each interviewer usually focuses on a different area and is discouraged from sharing feedback with other interviewers unless there's something they want subsequent interviewers to dill into.
+
+End of the day, your interviewers will compare notes. If everyone still feels you're viable candidate, you will have an interview with the director and the VP of the organization to which you're applying. While this decision is rather informal, it's a very good sign if you make it. This decision also happens behind the scenes, and if you don't pass, you'll simply be escorted out of the building without ever having been the wiser (until now).
+
+If you make it to the director and VP interviews, all of you interviewers will gather in a conference room to give an official thumbs up or thumbs down. The VP typically won't be present but can still veto the hire if they weren't impressed. You recruiter will usually follow up a few days later, but feel free to ping him or her for updates.
+
+### Definitely Prepare
+If you know what team you're interviewing with, make sure you read up on that product. What do you like about it? What would you improve? Offering specific recommendations can show your passion for the job.
+
+### What's Unique
+Apple does two-on-one interviews often, but don't get stressed out about them - it's the same as a one-on-one interview! 
+
+Also, Apple employees are hugh APple fans. You should show this same passion in your interview.
+
+
 
