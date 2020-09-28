@@ -6,4 +6,5 @@
     - string concat/join methods
     - Single linked-list node creation 
 
-    
+- [394. Decode String](https://leetcode.com/problems/decode-string/)
+    - not solved 
