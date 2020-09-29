@@ -8,6 +8,8 @@
 
 - [394. Decode String](https://leetcode.com/problems/decode-string/)
     - not solved 
+    - need to discuss
 
 - [199. Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
-    - not solved 
+    - solved (need to discuss)
+    - [code](./199_binary_tree_right_side_view.py)
