@@ -19,6 +19,7 @@
     - [code](./863_all_nodes_distance_k_binary_tree.py)
 
 - [695. Max Area of Island](https://leetcode.com/problems/max-area-of-island/)
+    - [dfs solution](./695_max_area_island_dfs.py)
     - need to discuss the dfs solution
     - BFS solvable in [here](./695_Max_Area_of_Island_bfs.py) 
     
