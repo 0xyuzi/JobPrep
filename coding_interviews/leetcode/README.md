@@ -17,11 +17,8 @@
 - [863. All Nodes Distance K in Binary Tree](https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/)
     - solved (need to discuss)
     - [code](./863_all_nodes_distance_k_binary_tree.py)
-<<<<<<< HEAD
 
 - [695. Max Area of Island](https://leetcode.com/problems/max-area-of-island/)
     - need to discuss the dfs solution
-    - BFS solvable
+    - BFS solvable in [here](./695_Max_Area_of_Island_bfs.py) 
     
-=======
->>>>>>> 5827ba0a3ac242fb64c0cd6d686d1e1a54e8cc54
