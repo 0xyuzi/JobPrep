@@ -7,7 +7,10 @@
     - Single linked-list node creation 
 
 - [394. Decode String](https://leetcode.com/problems/decode-string/)
-    - not solved 
+    - codding assisted by this [answer](https://leetcode-cn.com/problems/decode-string/solution/decode-string-fu-zhu-zhan-fa-di-gui-fa-by-jyd/) in leetcode cn
+    - recursive dfs
+    - the key part is to deal with the conditions when positive int, "[" ,"]" and "string"
+    - and deal with when at end of the string
     - need to discuss
 
 - [199. Binary Tree Right Side View](https://leetcode.com/problems/binary-tree-right-side-view/)
@@ -23,3 +26,19 @@
     - need to discuss the dfs solution
     - BFS solvable in [here](./695_Max_Area_of_Island_bfs.py) 
     
+## Prepare Snap Interview
+- [91. Decode Ways](https://leetcode.com/problems/decode-ways/)
+    - [My code practice](./91_decode_ways.py)
+    - Recursion + memo 
+    - Check the leading 0 case, and the valid of double digits between 10 and 26
+    - [Huahua solution much helpful!](https://www.youtube.com/watch?v=OjEHST4SXfE)
+    - Could use dynamic programming but could be start with [climb stair problem](https://leetcode.com/problems/climbing-stairs/) to familiar with DP
+
+- [116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)
+    - Bfs works but if constant extra space, should consider other ways
+    - Pre-order method works in this case
+    - Be careful about the edge cases(leaf node, None node)
+    - [My code practice](./116_populate_next_right_pointer_each_node.py)
+    - [Huahua's solution ](https://www.youtube.com/watch?v=YNu143ZN4qU)
+    - This problem's variance is [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)
+
