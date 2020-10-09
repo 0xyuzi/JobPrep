@@ -32,7 +32,11 @@
     - Recursion + memo 
     - Check the leading 0 case, and the valid of double digits between 10 and 26
     - [Huahua solution much helpful!](https://www.youtube.com/watch?v=OjEHST4SXfE)
-    - Could use dynamic programming but could be start with [climb stair problem](https://leetcode.com/problems/climbing-stairs/) to familiar with DP
+    - Could use dynamic programming but could be start with [climb stair problem](https://leetcode.com/problems/climbing-stairs/) to familiar with DP.
+    - The climb star problem solved by using DP method. [code](./70_Climbing Stairs.py)
+    - [My code](./lc_91_decode_way_dp.py) Using dp method to solve.
+        - the dp[0] and dp[1] initialization 
+        - check the valid one digits and valid two digits
 
 - [116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/)
     - Bfs works but if constant extra space, should consider other ways
