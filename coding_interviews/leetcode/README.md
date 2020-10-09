@@ -26,7 +26,7 @@
     - need to discuss the dfs solution
     - BFS solvable in [here](./695_Max_Area_of_Island_bfs.py) 
     
-## Prepare Snap Interview
+## Prepare Interview
 - [91. Decode Ways](https://leetcode.com/problems/decode-ways/)
     - [My code practice](./91_decode_ways.py)
     - Recursion + memo 
@@ -42,3 +42,11 @@
     - [Huahua's solution ](https://www.youtube.com/watch?v=YNu143ZN4qU)
     - This problem's variance is [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)
 
+- [117.117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/)
+    - Level-order BFS works but needs to use queue that not in constant O(N)
+    - Use linked-list
+        - Head node to stay at the first node in each level
+        - Tail to go over nodes in the same level
+        - Cur to create links from left to right in next level
+    - [My code](./117_pop_next_right_point_tree2.py)
+    - Nice solution by [Orust](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/solution/117-tian-chong-mei-ge-jie-dian-de-xia-yi-ge-you-11/) in Chinese edition
