@@ -54,3 +54,19 @@
         - Cur to create links from left to right in next level
     - [My code](./117_pop_next_right_point_tree2.py)
     - Nice solution by [Orust](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/solution/117-tian-chong-mei-ge-jie-dian-de-xia-yi-ge-you-11/) in Chinese edition
+
+### Recursion
+- [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
+    - DFS, adding "(" and ")" into the path,
+    - Exit condition: 
+        - no more available parenthese for both left and right -> adding path into the result
+        - the  available right parenthese less than left parenthese 
+
+-[139. Word Break](https://leetcode.com/problems/word-break/)
+    - dfs + memo
+    - prefix + dfs(suffix, word_dict, memo)
+    - memo[suffix], check if prefix and suffiix in word_dict or not
+
+-[140. Word Break II](https://leetcode.com/problems/word-break-ii/)
+    - similar to word break above, but need to output all possible solutions and can use the words in word dict repeatedly
+    - need to loop all possible combination  
