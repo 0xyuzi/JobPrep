@@ -77,3 +77,10 @@
     - Must have two islands (all 1's) that separated by zeros
     - First step is use dfs to find one island the mark their lands with all 2's, and push all island points into the queue
     - Last, bfs the queue to expand level by level, if meet 0, change to 2, if meet 1 return the steps    
+
+
+### Calculator series problems
+- [227. Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/)
+    - Stack to store the original or processed numbers
+    - Deal with different operators (+,-,*,/)
+    - Caution when meet minus sign and divide sign 
