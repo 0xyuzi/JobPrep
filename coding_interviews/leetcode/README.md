@@ -89,5 +89,5 @@
     - More complex than lc227 by adding the "(" and ")".
     - Using recursion to deal with "(" 
     - Exit condition on ")" and return parameters of sum of number and next index 
+    - [Labuladong's calculator method](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484903&idx=1&sn=184beaad36a71c9a8dd93c41a8ba74ac&chksm=9bd7fbefaca072f9beccff92a715d92ee90f46c297277eec10c322bc5ccd053460da6afb76c2&scene=21#wechat_redirect)
 
-    
