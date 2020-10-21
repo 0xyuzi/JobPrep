@@ -70,3 +70,10 @@
 -[140. Word Break II](https://leetcode.com/problems/word-break-ii/)
     - similar to word break above, but need to output all possible solutions and can use the words in word dict repeatedly
     - need to loop all possible combination  
+
+
+### Grid type problem
+- [934. Shortest Bridge](https://leetcode.com/problems/shortest-bridge/)
+    - Must have two islands (all 1's) that separated by zeros
+    - First step is use dfs to find one island the mark their lands with all 2's, and push all island points into the queue
+    - Last, bfs the queue to expand level by level, if meet 0, change to 2, if meet 1 return the steps    
