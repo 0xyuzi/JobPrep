@@ -84,3 +84,10 @@
     - Stack to store the original or processed numbers
     - Deal with different operators (+,-,*,/)
     - Caution when meet minus sign and divide sign 
+
+- [772. Basic Calculator III](https://leetcode.com/problems/basic-calculator-iii/)
+    - More complex than lc227 by adding the "(" and ")".
+    - Using recursion to deal with "(" 
+    - Exit condition on ")" and return parameters of sum of number and next index 
+
+    
