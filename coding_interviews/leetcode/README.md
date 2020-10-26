@@ -55,6 +55,18 @@
     - [My code](./117_pop_next_right_point_tree2.py)
     - Nice solution by [Orust](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/solution/117-tian-chong-mei-ge-jie-dian-de-xia-yi-ge-you-11/) in Chinese edition
 
+- [752. Open the Lock](https://leetcode.com/problems/open-the-lock/)
+    - Use BFS
+    - From end to start
+    - Convert deadends to hashset 
+    - Consider the edge case the target could in deadends
+
+-[253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
+    - scan lines, create the tuples (start, 1), (end, -1)
+    - so, sorted would if have the same time in start and end, end would ahead of the start 
+    - accumulate the second element (1 or -1), which indicates number of conferences simultanesouly, 
+    - the max of accumulate would the min of number conference room needed.
+
 ### Recursion
 - [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/)
     - DFS, adding "(" and ")" into the path,
@@ -91,3 +103,10 @@
     - Exit condition on ")" and return parameters of sum of number and next index 
     - [Labuladong's calculator method](https://mp.weixin.qq.com/s?__biz=MzAxODQxMDM0Mw==&mid=2247484903&idx=1&sn=184beaad36a71c9a8dd93c41a8ba74ac&chksm=9bd7fbefaca072f9beccff92a715d92ee90f46c297277eec10c322bc5ccd053460da6afb76c2&scene=21#wechat_redirect)
 
+
+### Power of n
+- [50. Pow(x, n)](https://leetcode.com/problems/powx-n/)
+    - Trick to x iteratively multiply it self 
+    - n iteratively updated by int divided by 2 (//2)
+    - when n is an odd number , res updated by multiply with x
+    - check the sign of n 
