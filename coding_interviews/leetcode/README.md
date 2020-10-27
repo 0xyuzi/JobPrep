@@ -110,3 +110,10 @@
     - n iteratively updated by int divided by 2 (//2)
     - when n is an odd number , res updated by multiply with x
     - check the sign of n 
+
+### Trie
+- [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)
+    - [code](./208_implement_trie_node.py)
+    - create a TrieNode class with children dict and is_children bool type 
+    - create a find function in Trie class to search the node of prefix by go over from the first character to the last char if exist.
+    
