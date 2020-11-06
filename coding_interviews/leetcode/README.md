@@ -111,6 +111,15 @@
     - when n is an odd number , res updated by multiply with x
     - check the sign of n 
 
+### Heap
+- [692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)
+    - heapq structure
+    - the heap will always pop the mininum val inside the heap, so if want maximum, use "-" maximum
+    - operations:(h=[])
+        - heappush(h,num)
+        - heappop(h,num)
+        - or heapify(list)
+
 ### Trie
 - [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)
     - [code](./208_implement_trie_node.py)

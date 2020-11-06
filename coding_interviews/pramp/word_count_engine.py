@@ -38,7 +38,7 @@ def word_count_engine(document):
       
       temp_word = ''
     
-    print(word_counter)
+    # print(word_counter)
     
     # bucket sort
     
@@ -69,5 +69,5 @@ def word_count_engine(document):
 document = "Practice makes perfect. you'll only get Perfect by practice. just practice!"
    
 print(word_count_engine(document))
-        
-       
+
+ 
