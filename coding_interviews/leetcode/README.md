@@ -125,4 +125,12 @@
     - [code](./208_implement_trie_node.py)
     - create a TrieNode class with children dict and is_children bool type 
     - create a find function in Trie class to search the node of prefix by go over from the first character to the last char if exist.
-    
+
+
+## FB
+- [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
+    - First sort the list
+    - chert if the last'element in the result list's end >= cur interval's end
+        - if yes, update result list last'element end with max(res[-1].end, cur_interval.end)
+        - if no, append the cur interval into the result list
+        - [huahua](https://www.youtube.com/watch?v=6tLHjei-f0I)
