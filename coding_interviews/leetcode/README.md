@@ -143,4 +143,9 @@
     - Stpe 2, in next(), pop out the node as, then check if this node has right child (don't care the left child since have been transversed and in the stack already), if has right child, call the helper function to transverse the this right child leftmost.
     - Step3. hasNext(), check if the stack is empty or not.
 
+-[51. N-Queens](https://leetcode.com/problems/n-queens/)
+    - dfs with backtracting (append -> dfs -> pop)
+    - mistakes on backtracting when in first row
+    - rules is on the queue in the next row could not on the same col, or row + col = anyqueue(row + col), or col - row = any_queue(col - row)
+
 
