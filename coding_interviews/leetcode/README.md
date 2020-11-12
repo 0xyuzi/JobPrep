@@ -134,3 +134,13 @@
         - if yes, update result list last'element end with max(res[-1].end, cur_interval.end)
         - if no, append the cur interval into the result list
         - [huahua](https://www.youtube.com/watch?v=6tLHjei-f0I)
+
+- [173. Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)
+    - Solution in [Leetcode CN](https://leetcode-cn.com/problems/binary-search-tree-iterator/solution/er-cha-sou-suo-shu-die-dai-qi-by-leetcode/)
+    - Time O(1), space O(h), h is the height of the tree
+    - Since its BST, naturally would use in-order (left-mid-right)
+    - Step 1, in initialization, transverse in left-most fashion and use stack to store the transverse points. Better to create the helper function for leftmost transverse 
+    - Stpe 2, in next(), pop out the node as, then check if this node has right child (don't care the left child since have been transversed and in the stack already), if has right child, call the helper function to transverse the this right child leftmost.
+    - Step3. hasNext(), check if the stack is empty or not.
+
+
