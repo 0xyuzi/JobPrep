@@ -62,7 +62,7 @@
     - Consider the edge case the target could in deadends
 
 -[253. Meeting Rooms II](https://leetcode.com/problems/meeting-rooms-ii/)
-    - scan lines, create the tuples (start, 1), (end, -1)
+    - scan lines, create the tuples (start, 1), (end, -1) (jiuzhang [solution](https://www.jiuzhang.com/solution/meeting-rooms-ii/#tag-lang-python))
     - so, sorted would if have the same time in start and end, end would ahead of the start 
     - accumulate the second element (1 or -1), which indicates number of conferences simultanesouly, 
     - the max of accumulate would the min of number conference room needed.

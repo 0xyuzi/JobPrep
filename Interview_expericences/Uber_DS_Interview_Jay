@@ -1,0 +1,21 @@
+# The Uber Data Science Interview
+
+[The Uber Data Science Interview-Jay](https://www.youtube.com/watch?v=qcHtpOvaXSI)
+
+## Takeaways
+- Two branches: Data Science and Data Science and Analytics
+- Driver/rider fraud
+- Economical research
+- Marketing Science
+
+## IntInterview process
+- Uber takehome challenge (on intervieweqeury practice)
+- Phone screen
+- Case studies (open boundaries)
+- Feature selection, model building in platform, real problems for Uber
+- Sample questions: Design an incentive scheme for drivers such that they likely to go into city areas where demand is high?
+- What metrics would you use to track Uber strategy of using paid advertising to acquire customer's works? How would you figure out a acceptable cost of customer acquisition.
+- What are the costs of having a fleet of vehicles takes Google street view photos of every major city in the US every day.
+- Write a production code to find all combinations of numbers in a list that sum up to 8.
+- What assumption of linear regression
+- What algorithm would you use to predict if a driver will accept a ride request or not? What features would you use?
