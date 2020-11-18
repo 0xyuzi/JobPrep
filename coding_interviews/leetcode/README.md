@@ -110,3 +110,42 @@
     - n iteratively updated by int divided by 2 (//2)
     - when n is an odd number , res updated by multiply with x
     - check the sign of n 
+
+### Heap
+- [692. Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/)
+    - heapq structure
+    - the heap will always pop the mininum val inside the heap, so if want maximum, use "-" maximum
+    - operations:(h=[])
+        - heappush(h,num)
+        - heappop(h,num)
+        - or heapify(list)
+
+### Trie
+- [208. Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/)
+    - [code](./208_implement_trie_node.py)
+    - create a TrieNode class with children dict and is_children bool type 
+    - create a find function in Trie class to search the node of prefix by go over from the first character to the last char if exist.
+
+
+## FB
+- [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
+    - First sort the list
+    - chert if the last'element in the result list's end >= cur interval's end
+        - if yes, update result list last'element end with max(res[-1].end, cur_interval.end)
+        - if no, append the cur interval into the result list
+        - [huahua](https://www.youtube.com/watch?v=6tLHjei-f0I)
+
+- [173. Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)
+    - Solution in [Leetcode CN](https://leetcode-cn.com/problems/binary-search-tree-iterator/solution/er-cha-sou-suo-shu-die-dai-qi-by-leetcode/)
+    - Time O(1), space O(h), h is the height of the tree
+    - Since its BST, naturally would use in-order (left-mid-right)
+    - Step 1, in initialization, transverse in left-most fashion and use stack to store the transverse points. Better to create the helper function for leftmost transverse 
+    - Stpe 2, in next(), pop out the node as, then check if this node has right child (don't care the left child since have been transversed and in the stack already), if has right child, call the helper function to transverse the this right child leftmost.
+    - Step3. hasNext(), check if the stack is empty or not.
+
+-[51. N-Queens](https://leetcode.com/problems/n-queens/)
+    - dfs with backtracting (append -> dfs -> pop)
+    - mistakes on backtracting when in first row
+    - rules is on the queue in the next row could not on the same col, or row + col = anyqueue(row + col), or col - row = any_queue(col - row)
+
+
