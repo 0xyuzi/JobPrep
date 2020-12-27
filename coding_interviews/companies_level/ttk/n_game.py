@@ -1,3 +1,5 @@
+import math
+from scipy.stats import norm
 class Solution:
     def n_game(self, m,n,k):
         """
@@ -38,12 +40,30 @@ class Solution:
         
         print("----------------")
 
+    def n_game_approx(self, m,n,k):
+        """
+        Approximate method by using central limit theory
+        """
+        sample_mean = 0.5*m
+        sample_var = ((m+1)**2-1)/12
+
+        cum_prob = 0
+        test_prob = 0
+        for i in range(n):
+            cum_prob += 1/math.sqrt(2*math.pi*k*sample_var) * math.exp(-0.5*(i - k*sample_mean)**2/(k*sample_var))
+            test_prob += norm.pdf(i, k*sample_mean, math.sqrt(k*sample_var))
+            
+        
+        print(f"scipy norm function results: {1 - test_prob}")
+        return 1- cum_prob
+        
 
 if __name__ == "__main__":
     sol = Solution()
-    n, m, k = 1000,1000,1000
+    n, m, k = 2,1,3
 
     print(sol.n_game(m,n,k))
+    print(sol.n_game_approx(m,n,k))
 
 
 
