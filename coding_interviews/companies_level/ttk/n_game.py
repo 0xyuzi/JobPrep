@@ -43,6 +43,9 @@ class Solution:
     def n_game_approx(self, m,n,k):
         """
         Approximate method by using central limit theory
+        reference: https://ocw.aprende.org/courses/physics/8-044-statistical-physics-i-spring-2013/readings-notes-slides/MIT8_044S13_ProbabilityCh4.pdf
+        analytical solution reference (not sure how to apply the gamma and the summation term) https://www.dartmouth.edu/~chance/teaching_aids/books_articles/probability_book/Chapter7.pdf
+        
         """
         sample_mean = 0.5*m
         sample_var = ((m+1)**2-1)/12
