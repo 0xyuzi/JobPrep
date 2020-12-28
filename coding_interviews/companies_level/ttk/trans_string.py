@@ -36,13 +36,14 @@ def trans_string(str1, str2):
     res = 0
 
   
-    
+    # detect cycle and count how many nodes involved in it
     num_nodes = is_cycle(graph, indgree)
     if num_nodes != 0:
         print(num_nodes)
+        # num transformation is num of nodes plus 1
         res += 1+ num_nodes
         
-    
+    # supposed just only 1 cycle exist, then left nodes are single transformation
     res += len(graph) 
         
 
@@ -120,13 +121,16 @@ def remove_nodes(end_node, graph, indegree):
     
     while node != end_node:
         indegree[node] -=  1
-        if indegree[node] == 0:
-            print(f"graph and indegree of node {node} since its indegree is 0")
-            visited.add(node)
-            node = graph[node]
+        # if indegree[node] == 0:
+        #     print(f"graph and indegree of node {node} since its indegree is 0")
+        #     visited.add(node)
+        #     node = graph[node]
            
-        else:
-            node = graph[node]
+        # else:
+        #     node = graph[node]
+        visited.add(node)
+        node = graph[node]
+          
 
     for v in visited:
         print(f"remove {v} from the graph")
@@ -137,8 +141,8 @@ def remove_nodes(end_node, graph, indegree):
 
 if __name__ == "__main__":
     # abcd -> bcaa
-    str1 = "abcd"
-    str2 = "bcaa"
+    str1 = "ab"
+    str2 = "ba"
 
     print(trans_string(str1, str2))
 

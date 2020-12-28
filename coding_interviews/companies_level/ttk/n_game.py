@@ -13,6 +13,8 @@ class Solution:
         if m*k < n:
             return 0.0
         
+        if m*k/n > 50:
+            return 1.0
         
         # dp [i,j], in ith turn, to get the accumulate point j,  n, m, k = 35,7,7
         dp = [[0.0]*(n+1) for i in range(k)]
@@ -63,7 +65,7 @@ class Solution:
 
 if __name__ == "__main__":
     sol = Solution()
-    n, m, k = 800,20,80
+    n, m, k = 1000,1000,1000
 
     print(sol.n_game(m,n,k))
     print(sol.n_game_approx(m,n,k))
