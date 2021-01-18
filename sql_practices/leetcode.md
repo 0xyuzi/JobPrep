@@ -1,5 +1,24 @@
 # Leetcode SQL Problems
 
+### 177. Nth Highest Salary
+__Key points__
+- `DENSE_RANK() OVER(ORDER BY ... DESC)`, why not use `ROW_NUMBER()` or `RANK()`  here, [example](https://codingsight.com/similarities-and-differences-among-rank-dense_rank-and-row_number-functions/)
+- `DISTINCT()` render only 1 result 
+- [Great article](https://leetcode-cn.com/problems/nth-highest-salary/solution/mysql-zi-ding-yi-bian-liang-by-luanz/) on different methods and their query efficiency
+
+```sql
+      SELECT DISTINCT salary 
+      FROM 
+      (
+        SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) as rank_salary
+        FROM Employee
+      ) rank_s
+      
+      WHERE rank_salary=N 
+
+```
+
+
 ### 1468. Calculate Salaries
 __Key points__
 - CASE WHEN... THEN ... ELSE ... END AS [Example](https://mode.com/sql-tutorial/sql-case/)
