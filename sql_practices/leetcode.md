@@ -1,4 +1,29 @@
 # Leetcode SQL Problems
+### [1355. Activity Participants](https://leetcode.com/problems/activity-participants/)
+- `SELECT MIN(num_friends) from Count_activity` to get the min/max values of the column
+- sql query order
+
+```sql
+SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+```
+
+```sql
+WITH Count_activity AS (
+    SELECT activity, COUNT(id) AS num_friends
+    FROM Friends
+    GROUP BY activity
+)
+
+SELECT activity 
+FROM Count_activity c
+JOIN Activities a
+ON c.activity = a.name
+WHERE c.num_friends > (SELECT MIN(num_friends) from Count_activity) AND c.num_friends < (SELECT MAX(num_friends) from Count_activity)
+```
 
 ### [184. Department Highest Salary](https://leetcode.com/problems/department-highest-salary/)
 __Key points__
