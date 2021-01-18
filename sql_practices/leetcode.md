@@ -1,5 +1,38 @@
 # Leetcode SQL Problems
 
+### [184. Department Highest Salary](https://leetcode.com/problems/department-highest-salary/)
+__Key points__
+- `DENSE_RANK() OVER (PARTITION BY ... ORDER BY ... [DESC|ASC])`
+- Use `JOIN` here instead of `LEFT JOIN` to prevent if the "Department" table is NULL
+
+``` sql
+# Write your MySQL query statement below
+
+# dense_rank 
+
+WITH Dept_rank_salary AS (
+
+    SELECT DepartmentId, Name, salary, DENSE_RANK() OVER(PARTITION BY DepartmentId ORDER BY salary DESC) AS dept_salary_rank
+    FROM Employee
+    
+) 
+
+SELECT t.Name as Department, d.Name AS Employee, d.salary as Salary
+
+FROM Dept_rank_salary as d
+
+JOIN Department t
+
+ON t.id = d.departmentid 
+
+WHERE d.dept_salary_rank = 1
+
+```
+
+
+
+
+
 ### 177. Nth Highest Salary
 __Key points__
 - `DENSE_RANK() OVER(ORDER BY ... DESC)`, why not use `ROW_NUMBER()` or `RANK()`  here, [example](https://codingsight.com/similarities-and-differences-among-rank-dense_rank-and-row_number-functions/)
