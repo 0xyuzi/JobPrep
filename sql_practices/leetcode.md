@@ -1,5 +1,71 @@
 # Leetcode SQL Problems
 
+### 1468. Calculate Salaries
+__Key points__
+- CASE WHEN... THEN ... ELSE ... END AS [Example](https://mode.com/sql-tutorial/sql-case/)
+- `ROUND` FUNCTION, default round number to integer [example](https://www.w3schools.com/sql/func_sqlserver_round.asp)
+- `JOIN ON` and `LEFT JOIN ON`
+-  [Common table  expression (CTE)](https://blog.csdn.net/bcbobo21cn/article/details/71155359), `WITH... AS ()`
+
+
+__Method 1__
+``` sql
+SELECT s.company_id, s.employee_id, s.employee_name, 
+ROUND(s.salary*(1-m.tax_rate)) AS salary
+FROM Salaries s
+
+LEFT JOIN (
+    SELECT 
+    company_id,
+    CASE
+        WHEN MAX(salary) < 1000 THEN 0
+        WHEN MAX(salary) BETWEEN 1000 and 10000 THEN 0.24
+        ELSE 0.49
+    END AS tax_rate
+    FROM Salaries
+    GROUP BY company_id
+) m
+
+ON m.company_id = s.company_id 
+```
+
+__METHOD 2, cte__
+```sql
+
+WITH Company_tax AS (
+
+    SELECT company_id, 
+        CASE 
+            WHEN MAX(salary) < 1000 THEN 0
+            WHEN MAX(salary) BETWEEN 1000 AND 10000 THEN 0.24
+            WHEN MAX(salary) > 10000 THEN 0.49  
+        END AS tax_rate
+    
+    FROM Salaries
+    
+    GROUP BY company_id
+)
+
+
+
+
+SELECT 
+    s.company_id, 
+    s.employee_id, 
+    s.employee_name, 
+    ROUND(s.salary*(1 - t.tax_rate)) AS salary
+
+FROM Salaries s 
+
+LEFT JOIN Company_tax t
+
+ON t.company_id = s.company_id
+
+
+
+```
+
+
 ### 176. Second Highest Salary
 ``` sql
 SELECT MAX(Salary) AS SecondHighestSalary 
