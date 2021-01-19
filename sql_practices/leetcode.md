@@ -1,4 +1,33 @@
 # Leetcode SQL Problems
+
+### [1454. Active Users](https://leetcode.com/problems/active-users/)
+- `LAG(col, interval)` function and kinds of [window function](https://mode.com/sql-tutorial/sql-window-functions/#lag-and-lead)
+- `DATEDIFF()` function, it has [different inputs requirement](https://mode.com/help/articles/use-your-data-with-the-mode-playbook/) in different sql system 
+- `NATURAL JOIN` vs `INNER JOIN`. The former implicit find the common column and join without duplicate common columns, [example](https://www.geeksforgeeks.org/difference-between-natural-join-and-inner-join-in-sql/)
+- Multiple CTEs use `,` to separate, only need one 'WITH' at first. [Example](https://mode.com/blog/use-common-table-expressions-to-keep-your-sql-clean/)
+
+```sql
+WITH Distinct_log AS (
+    SELECT DISTINCT * 
+    FROM Logins
+),
+
+    Lag_log_date AS (
+    SELECT id, login_date, 
+        LAG(login_date, 4) OVER(PARTITION BY id ORDER BY login_date) AS lag_4_date
+
+    FROM Distinct_log
+)
+
+SELECT DISTINCT a.id, a.name
+
+FROM Lag_log_date l
+Natural Join Accounts a
+WHERE DATEDIFF(login_date, lag_4_date)=4
+ORDER BY a.id
+```
+
+
 ### [1355. Activity Participants](https://leetcode.com/problems/activity-participants/)
 - `SELECT MIN(num_friends) from Count_activity` to get the min/max values of the column
 - sql query order
