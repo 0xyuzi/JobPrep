@@ -3,6 +3,7 @@
 ### [1132. Reported Posts II](https://leetcode.com/problems/reported-posts-ii/)
 - `LEFT JOIN` here to keep the total post_id in Action table.
 - `DISTINCT` to remove the duplicated rows since no primary key in Action table
+- `AVG` function
 
 ```sql
 WITH Spam_ratio AS (
