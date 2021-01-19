@@ -1,5 +1,24 @@
 # Leetcode SQL Problems
 
+### [1132. Reported Posts II](https://leetcode.com/problems/reported-posts-ii/)
+- `LEFT JOIN` here to keep the total post_id in Action table.
+- `DISTINCT` to remove the duplicated rows since no primary key in Action table
+
+```sql
+WITH Spam_ratio AS (
+
+    SELECT COUNT(DISTINCT r.post_id) / COUNT(DISTINCT a.post_id) AS ratio, a.action_date
+    FROM Actions a
+    LEFT JOIN Removals r
+    ON a.post_id = r.post_id 
+    WHERE a.extra="spam"
+    GROUP BY a.action_date
+    
+)
+
+SELECT ROUND(AVG(ratio)*100,2) AS average_daily_percent
+FROM Spam_ratio
+```
 ### [1454. Active Users](https://leetcode.com/problems/active-users/)
 - `LAG(col, interval)` function and kinds of [window function](https://mode.com/sql-tutorial/sql-window-functions/#lag-and-lead)
 - `DATEDIFF()` function, it has [different inputs requirement](https://mode.com/help/articles/use-your-data-with-the-mode-playbook/) in different sql system 
