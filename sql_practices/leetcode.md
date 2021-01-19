@@ -1,5 +1,28 @@
 # Leetcode SQL Problems
 
+### [1204. Last Person to Fit in the Elevator](https://leetcode.com/problems/last-person-to-fit-in-the-elevator/)
+- `SUM(col1) OVER(ORDER BY col2 ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)`, but if cumulative sum from start, could short fot `SUM(col1) OVER(ORDER BY col2 ASC|DESC)`
+- `LIMIT 1` put at the end of the query
+
+```sql
+# Write your MySQL query statement below
+WITH Total_weights AS (
+
+SELECT 
+    person_name, 
+    SUM(weight) OVER (ORDER BY turn ASC) AS cum_weight
+    FROM Queue
+    ORDER BY turn ASC
+
+)
+
+SELECT person_name 
+FROM Total_weights
+WHERE cum_weight <=1000
+ORDER BY cum_weight DESC
+LIMIT 1
+```
+
 ### [1132. Reported Posts II](https://leetcode.com/problems/reported-posts-ii/)
 - `LEFT JOIN` here to keep the total post_id in Action table.
 - `DISTINCT` to remove the duplicated rows since no primary key in Action table
