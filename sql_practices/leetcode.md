@@ -1,5 +1,45 @@
 # Leetcode SQL Problems
 
+### [1212. Team Scores in Football Tournament](https://leetcode.com/problems/team-scores-in-football-tournament/)
+Not quite understand. Need to review
+
+```sql
+WITH CTE AS(
+Select host_team,guest_team, 
+CASE WHEN host_goals>guest_goals  then 3
+     WHEN host_goals=guest_goals then 1
+     else 0 end as Host_Goals,
+    
+CASE WHEN host_goals<guest_goals  then 3
+     WHEN host_goals=guest_goals then 1
+     else 0 end as Guest_Goals 
+     from Matches),
+     
+Team_As_Guest as(
+Select distinct T.team_id, SUM(Guest_Goals) as Guest_pt FROM CTE RIGHT JOIN Teams T
+    on T.team_id=CTE.guest_team
+    where T.team_id=CTE.guest_team
+    GROUP BY T.team_id
+),
+
+Team_As_Host as(
+Select distinct T.team_id, SUM(Host_Goals) As Host_Pt FROM CTE RIGHT JOIN Teams T
+    on T.team_id=CTE.host_team
+    where T.team_id=CTE.host_team
+    GROUP BY T.team_id
+)
+     
+Select T.team_id,T.team_name, Coalesce(SUM(Guest_pt),0)+Coalesce(SUM(Host_Pt),0) as num_points from
+Teams T LEFT JOIN Team_As_Host A 
+on T.team_id=A.team_id LEFT JOIN Team_As_Guest B on
+T.team_id=B.team_id
+group by T.team_id
+order by num_points desc, T.team_id
+
+
+
+```
+
 ### [1204. Last Person to Fit in the Elevator](https://leetcode.com/problems/last-person-to-fit-in-the-elevator/)
 - `SUM(col1) OVER(ORDER BY col2 ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)`, but if cumulative sum from start, could short fot `SUM(col1) OVER(ORDER BY col2 ASC|DESC)`
 - `LIMIT 1` put at the end of the query
