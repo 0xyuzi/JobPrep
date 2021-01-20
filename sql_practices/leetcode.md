@@ -1,7 +1,11 @@
 # Leetcode SQL Problems
 
 ### [1212. Team Scores in Football Tournament](https://leetcode.com/problems/team-scores-in-football-tournament/)
-Not quite understand. Need to review
+- `UNION ALL` 
+- `IFNULL(col, default)` if null value use default value
+- Must use alias if in nested query
+- `ORDER BY` could use multiple col in order if ties
+
 
 ```sql
 WITH Host_score AS(
