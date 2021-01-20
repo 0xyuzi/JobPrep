@@ -4,40 +4,58 @@
 Not quite understand. Need to review
 
 ```sql
-WITH CTE AS(
-Select host_team,guest_team, 
-CASE WHEN host_goals>guest_goals  then 3
-     WHEN host_goals=guest_goals then 1
-     else 0 end as Host_Goals,
+WITH Host_score AS(
+    SELECT 
+    host_team,
+    CASE
+        WHEN host_goals > guest_goals THEN 3
+        WHEN host_goals = guest_goals THEN 1
+        ELSE 0
+    END AS host_score
     
-CASE WHEN host_goals<guest_goals  then 3
-     WHEN host_goals=guest_goals then 1
-     else 0 end as Guest_Goals 
-     from Matches),
-     
-Team_As_Guest as(
-Select distinct T.team_id, SUM(Guest_Goals) as Guest_pt FROM CTE RIGHT JOIN Teams T
-    on T.team_id=CTE.guest_team
-    where T.team_id=CTE.guest_team
-    GROUP BY T.team_id
+    FROM Matches
+
 ),
 
-Team_As_Host as(
-Select distinct T.team_id, SUM(Host_Goals) As Host_Pt FROM CTE RIGHT JOIN Teams T
-    on T.team_id=CTE.host_team
-    where T.team_id=CTE.host_team
-    GROUP BY T.team_id
+Guest_score AS(
+    SELECT 
+    guest_team,
+    CASE
+        WHEN host_goals > guest_goals THEN 0
+        WHEN host_goals = guest_goals THEN 1
+        ELSE 3
+    END AS guest_score
+    
+    FROM Matches
+
+),
+
+
+Team_union AS (
+    SELECT host_team AS team_id, SUM(host_score) AS score
+    FROM host_score
+    GROUP BY host_team
+    
+    UNION ALL
+    
+    SELECT guest_team, SUM(guest_score) AS score
+    FROM guest_score
+    GROUP BY guest_team
+    
 )
-     
-Select T.team_id,T.team_name, Coalesce(SUM(Guest_pt),0)+Coalesce(SUM(Host_Pt),0) as num_points from
-Teams T LEFT JOIN Team_As_Host A 
-on T.team_id=A.team_id LEFT JOIN Team_As_Guest B on
-T.team_id=B.team_id
-group by T.team_id
-order by num_points desc, T.team_id
 
-
-
+SELECT team_id, team_name, IFNULL(score,0) AS num_points
+FROM (
+    
+    SELECT t.team_id as team_id, t.team_name as team_name,
+            SUM(tu.score) AS score
+    
+    FROM Team_union tu
+    RIGHT JOIN Teams t
+    ON t.team_id = tu.team_id
+    GROUP BY t.team_id
+) f
+ORDER BY num_points DESC, team_id ASC
 ```
 
 ### [1204. Last Person to Fit in the Elevator](https://leetcode.com/problems/last-person-to-fit-in-the-elevator/)
