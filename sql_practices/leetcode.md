@@ -1,5 +1,110 @@
 # Leetcode SQL Problems
 
+### [1212. Team Scores in Football Tournament](https://leetcode.com/problems/team-scores-in-football-tournament/)
+- `UNION ALL` 
+- `IFNULL(col, default)` if null value use default value
+- Must use alias if in nested query
+- `ORDER BY` could use multiple col in order if ties
+
+
+```sql
+WITH Host_score AS(
+    SELECT 
+    host_team,
+    CASE
+        WHEN host_goals > guest_goals THEN 3
+        WHEN host_goals = guest_goals THEN 1
+        ELSE 0
+    END AS host_score
+    
+    FROM Matches
+
+),
+
+Guest_score AS(
+    SELECT 
+    guest_team,
+    CASE
+        WHEN host_goals > guest_goals THEN 0
+        WHEN host_goals = guest_goals THEN 1
+        ELSE 3
+    END AS guest_score
+    
+    FROM Matches
+
+),
+
+
+Team_union AS (
+    SELECT host_team AS team_id, SUM(host_score) AS score
+    FROM host_score
+    GROUP BY host_team
+    
+    UNION ALL
+    
+    SELECT guest_team, SUM(guest_score) AS score
+    FROM guest_score
+    GROUP BY guest_team
+    
+)
+
+SELECT team_id, team_name, IFNULL(score,0) AS num_points
+FROM (
+    
+    SELECT t.team_id as team_id, t.team_name as team_name,
+            SUM(tu.score) AS score
+    
+    FROM Team_union tu
+    RIGHT JOIN Teams t
+    ON t.team_id = tu.team_id
+    GROUP BY t.team_id
+) f
+ORDER BY num_points DESC, team_id ASC
+```
+
+### [1204. Last Person to Fit in the Elevator](https://leetcode.com/problems/last-person-to-fit-in-the-elevator/)
+- `SUM(col1) OVER(ORDER BY col2 ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)`, but if cumulative sum from start, could short fot `SUM(col1) OVER(ORDER BY col2 ASC|DESC)`
+- `LIMIT 1` put at the end of the query
+
+```sql
+# Write your MySQL query statement below
+WITH Total_weights AS (
+
+SELECT 
+    person_name, 
+    SUM(weight) OVER (ORDER BY turn ASC) AS cum_weight
+    FROM Queue
+    ORDER BY turn ASC
+
+)
+
+SELECT person_name 
+FROM Total_weights
+WHERE cum_weight <=1000
+ORDER BY cum_weight DESC
+LIMIT 1
+```
+
+### [1132. Reported Posts II](https://leetcode.com/problems/reported-posts-ii/)
+- `LEFT JOIN` here to keep the total post_id in Action table.
+- `DISTINCT` to remove the duplicated rows since no primary key in Action table
+- `AVG` function
+
+```sql
+WITH Spam_ratio AS (
+
+    SELECT COUNT(DISTINCT r.post_id) / COUNT(DISTINCT a.post_id) AS ratio, a.action_date
+    FROM Actions a
+    LEFT JOIN Removals r
+    ON a.post_id = r.post_id 
+    WHERE a.extra="spam"
+    GROUP BY a.action_date
+    
+)
+
+SELECT ROUND(AVG(ratio)*100,2) AS average_daily_percent
+FROM Spam_ratio
+```
 ### [1454. Active Users](https://leetcode.com/problems/active-users/)
 - `LAG(col, interval)` function and kinds of [window function](https://mode.com/sql-tutorial/sql-window-functions/#lag-and-lead)
 - `DATEDIFF()` function, it has [different inputs requirement](https://mode.com/help/articles/use-your-data-with-the-mode-playbook/) in different sql system 
