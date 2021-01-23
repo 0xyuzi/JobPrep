@@ -477,8 +477,29 @@ FROM
 
 
 ### 180. Consecutive Numbers
+- This [Solution](https://leetcode-cn.com/problems/consecutive-numbers/solution/sql-server-jie-fa-by-neilsons/) could be applied to larger N.
 - [Solution from LC sql chinese website](https://leetcode-cn.com/problems/consecutive-numbers/solution/lian-xu-chu-xian-de-shu-zi-by-leetcode/)
 -  `DISTINCT` to remove the duplicates
+
+
+```sql
+# Write your MySQL query statement below
+SELECT DISTINCT b.num AS consecutiveNums
+FROM
+(
+SELECT a.num, count(*) AS count_group
+FROM(
+    SELECT id, num, 
+    ROW_NUMBER() OVER(ORDER BY id)  - ROW_NUMBER() OVER(PARTITION BY num ORDER BY id) AS row_diff
+    
+    FROM Logs
+) a
+GROUP BY a.num, a.row_diff
+) b     
+WHERE count_group>=3
+
+
+```
 
 
 ```sql
