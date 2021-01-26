@@ -1,5 +1,24 @@
 # Leetcode SQL Problems
 
+### [550. Game Play Analysis IV](https://leetcode.com/problems/game-play-analysis-iv/)
+- Figure what what is mean by "first log in"
+
+``` sql
+WITH Player_event AS (
+
+    SELECT player_id, MIN(event_date) AS first_log_in
+    FROM Activity
+    GROUP BY player_id 
+
+)
+
+SELECT ROUND(COUNT(DISTINCT p.player_id) / (SELECT COUNT(DISTINCT player_id) from Activity),2) AS fraction
+FROM Player_event p
+JOIN Activity a
+ON p.player_id = a.player_id 
+WHERE DATEDIFF(a.event_date, p.first_log_in) = 1
+```
+
 ### [1212. Team Scores in Football Tournament](https://leetcode.com/problems/team-scores-in-football-tournament/)
 - `UNION ALL` 
 - `IFNULL(col, default)` if null value use default value
