@@ -1,7 +1,45 @@
 # Leetcode SQL Problems
 
+### [1126. Active Businesses](https://leetcode.com/problems/active-businesses/
+)
+- think about when to use `GROUP BY`
+
+
+```sql
+# Write your MySQL query statement below
+/*
+1. compute the avg occus in each event type 
+2. count num of event_type of each business group by business_id that has greater than the avg occur in each event type
+3. select the one that has > 1 event_type meet the condition
+*/
+
+WITH Avg_event AS (
+
+    SELECT event_type, AVG(occurences) AS avg_event_occur
+    FROM Events
+    GROUP BY event_type
+
+)
+
+SELECT b.business_id 
+
+FROM (
+    SELECT e.business_id, COUNT(e.event_type) AS event_count
+    FROM Events e, Avg_event a
+    WHERE e.event_type = a.event_type AND e.occurences > a.avg_event_occur
+    GROUP BY e.business_id
+    
+    )b
+
+WHERE b.event_count > 1
+GROUP BY b.business_id
+
+```
+
+
 ### [550. Game Play Analysis IV](https://leetcode.com/problems/game-play-analysis-iv/)
 - Figure what what is mean by "first log in"
+- it has distinct player_id and event_date
 
 ``` sql
 WITH Player_event AS (
