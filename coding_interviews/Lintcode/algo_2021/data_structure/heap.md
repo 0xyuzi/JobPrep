@@ -42,6 +42,9 @@ class Solution:
     1. heapify the first k in the array, then use `heappushpop` for the left n-k elements in the array. The time complex is k+(n-k)*log(k)
     2. heapify all the element in the array by multiplying the "-" sign, then `heappop` operation in k times and choose the last popped element and multiply back the "-1".
 
+- the `heappushpop` more efficient that separete "heappush" and "heappop"
+- [sample solutions](https://www.lintcode.com/problem/5/solution) 
+
 for partition, the code below:
 - use index to point the location of the current two sides instead of copy whole array
 - keep in mind the "left" and "right" exceed each other so "left" > "right" after partition. 
